@@ -1,42 +1,62 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+
+.app {
+  height: 100%;
+  background: radial-gradient(circle at center, #0b1d2a 0%, #02070b 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9fe8ff;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.hud {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 200, 255, 0.35);
+  animation: spin 20s linear infinite;
+}
+
+.ring.inner {
+  inset: 40px;
+  border-color: rgba(0, 200, 255, 0.6);
+  animation-duration: 12s;
+  animation-direction: reverse;
+}
+
+.core {
+  position: absolute;
+  inset: 90px;
+  border-radius: 50%;
+  background: rgba(0, 120, 180, 0.15);
+  box-shadow: 0 0 40px rgba(0, 200, 255, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.core h1 {
+  margin: 0;
+  letter-spacing: 4px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.core p {
+  margin: 6px 0 0;
+  font-size: 12px;
+  opacity: 0.85;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
